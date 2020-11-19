@@ -127,13 +127,13 @@ class CommandUtil {
     }
 
     /**
-     * Sends a response with a mention concantenated to it.
+     * Sends a response as an inline reply to the message.
      * @param {StringResolvable} [content=''] - Content to send.
      * @param {MessageOptions|MessageAdditions} [options={}] - Options to use.
      * @returns {Promise<Message|Message[]>}
      */
     reply(content, options) {
-        return this.send(this.constructor.transformOptions(content, options, { reply: this.message.member || this.message.author }));
+        return this.send(this.constructor.transformOptions(content, options, { replyTo: this.message }));
     }
 
     /**
